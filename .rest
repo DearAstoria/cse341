@@ -1,0 +1,5 @@
+Get http://localhost:3000 HTTP/1.1
+
+
+###
+Get http://localhost:3000/awesome HTTP/1.1
