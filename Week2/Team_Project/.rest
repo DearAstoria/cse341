@@ -1,0 +1,1 @@
+Get http://localhost:5500/CSE%20341/cse341/Week2/Team_Project/frontend/index.html HTTP/1.1

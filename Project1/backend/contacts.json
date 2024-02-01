@@ -1,0 +1,23 @@
+[
+  {
+    "firstName": "Manuel",
+    "lastName": "Camargo",
+    "email": "N/A",
+    "favoriteColor": "Azul",
+    "birthday": "06/17/49"
+  },
+  {
+    "firstName": "Antonia",
+    "lastName": "Camargo",
+    "email": "N/A",
+    "favoriteColor": "Rosa",
+    "birthday": "06/17/49"
+  },
+  {
+    "firstName": "Sam",
+    "lastName": "Anderson",
+    "email": "sanderson0398@gmail.com",
+    "favoriteColor": "?",
+    "birthday": "01/24/1997"
+  }
+]

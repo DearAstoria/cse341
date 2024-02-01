@@ -1,0 +1,14 @@
+#Get http://localhost:3000 HTTP/1.1
+
+
+####
+#Get http://localhost:3000/awesome HTTP/1.1
+
+####
+#Get https://cse341-22pt.onrender.com HTTP/1.1
+
+####
+GET http://localhost:8080/professional # the request above returns a json object with all professional data 
+
+###
+GET http:/localhost:
