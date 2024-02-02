@@ -5,16 +5,22 @@
 Get http://localhost:3000/awesome HTTP/1.1
 
 ####
-#Get https://cse341-22pt.onrender.com HTTP/1.1
+Get https://cse341-22pt.onrender.com/contacts HTTP/1.1
 
 ###
-GET http://localhost:8080/professional # the request above returns a json object with all professional data 
+Get https://cse341-22pt.onrender.com/singleContact HTTP/1.1
 
 ###
-POST https://localhost:8080/ HTTP/1.1
-content-type: application/json
+GET http://localhost:8080/contacts
 
-{
-    "name": "sample",
-    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
-}
+### 
+GET http://localhost:8080/contacts/singleContact
+
+####
+#POST https://localhost:8080/ HTTP/1.1
+#content-type: application/json
+
+#{
+#    "name": "sample",
+#    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+#}
