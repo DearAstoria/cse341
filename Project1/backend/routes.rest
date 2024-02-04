@@ -8,7 +8,7 @@ Get http://localhost:3000/awesome HTTP/1.1
 Get https://cse341-22pt.onrender.com/contacts HTTP/1.1
 
 ###
-Get https://cse341-22pt.onrender.com/singleContact HTTP/1.1
+Get https://cse341-22pt.onrender.com/contacts/singleContact HTTP/1.1
 
 ###
 GET http://localhost:8080/contacts
@@ -24,3 +24,51 @@ GET http://localhost:8080/contacts/singleContact
 #    "name": "sample",
 #    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
 #}
+
+####
+Post http://localhost:8080/contacts/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Alesana",
+    "lastName": "Camargo",
+    "email": "N/A",
+    "favoriteColor": "Pink",
+    "birthday": "02/01/2013"
+}
+
+####
+Post http://localhost:8080/contacts/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Sam",
+    "lastName": "Anderson",
+    "email": "N/A",
+    "favoriteColor": "?",
+    "birthday": "01/24/1997"
+}
+
+####
+Post http://localhost:8080/contacts/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "anon",
+    "lastName": "anon",
+    "email": "N/A",
+    "favoriteColor": "?",
+    "birthday": "01/01/1900"
+}
+
+####
+Put http://localhost:8080/contacts/65bf61b9998155412c367acb HTTP/1.1
+Content-Type: application/json
+
+    { "favoriteColor": "Blue" }
+
+####
+Delete http://localhost:8080/contacts/ HTTP/1.1
+Content-Type: application/json
+
+    {"firstName": "anon"}
