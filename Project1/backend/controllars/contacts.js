@@ -24,7 +24,7 @@ const postContacts = async (request, response, next) => {
     .collection("contacts")
     .insertOne(request.body);
   response.setHeader("Content-Type", "application/json");
-  response.status(200).json(result);
+  response.status(201).json(result);
   //response.redirect("/")
 };
 
@@ -39,7 +39,7 @@ const putContact = async (request, response, next) => {
       .collection("contacts")
       .updateOne({ _id: o_id }, { $set: request.body });
     response.setHeader("Content-Type", "application/json");
-    response.status(200).json(result);
+    response.status(204).json(result);
   } catch (error) {
     console.error(error);
   }
