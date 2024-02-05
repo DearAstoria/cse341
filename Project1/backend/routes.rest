@@ -72,3 +72,53 @@ Delete http://localhost:8080/contacts/ HTTP/1.1
 Content-Type: application/json
 
     {"firstName": "anon"}
+
+# Render links vv
+
+####
+Post https://cse341-22pt.onrender.com/contacts/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Alesana",
+    "lastName": "Camargo",
+    "email": "N/A",
+    "favoriteColor": "Pink",
+    "birthday": "02/01/2013"
+}
+
+####
+Post https://cse341-22pt.onrender.com/contacts/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Sam",
+    "lastName": "Anderson",
+    "email": "N/A",
+    "favoriteColor": "?",
+    "birthday": "01/24/1997"
+}
+
+####
+Post https://cse341-22pt.onrender.com/contacts/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "anon",
+    "lastName": "anon",
+    "email": "N/A",
+    "favoriteColor": "?",
+    "birthday": "01/01/1900"
+}
+
+####
+Put https://cse341-22pt.onrender.com/contacts/65bf61b9998155412c367acb HTTP/1.1
+Content-Type: application/json
+
+    { "favoriteColor": "Green" }
+
+####
+Delete https://cse341-22pt.onrender.com/contacts/ HTTP/1.1
+Content-Type: application/json
+
+    {"firstName": "anon"}
