@@ -69,7 +69,7 @@ const deleteContact = async (request, response, next) => {
 //
 //
 
-let id = "65bbf1b4dd27051a5e1ef44f";
+let id = "65bf42a49fc51df844d61464";
 
 let o_id = new ObjectId(id); // id as a string is passed
 
