@@ -9,20 +9,43 @@ const getContacts = async (req, res, next) => {
     res.status(200).json(lists);
   });
 };
-// Create a POST route to create a new contact.
-// All fields are required.
-// Return the new contact id in the response body.
-//"firstName": "Manuel",
-//"lastName": "Camargo",
-//"email": "N/A",
-//"favoriteColor": "Azul",
-//"birthday": "06/17/49"
+
+// From:https://stackoverflow.com/questions/8233014/how-do-i-search-for-an-object-by-its-objectid-in-the-mongo-console
+//let id = "58c85d1b7932a14c7a0a320d";
+//let o_id = new ObjectId(id); // id as a string is passed
+//db.collection.findOne({ _id: o_id });
+
+const getSpecificContact = async (req, res, next) => {
+  try {
+    id = req.params._id;
+    console.log(id);
+    let o_id = new ObjectId(id);
+    console.log(o_id);
+    const result = await mongodb
+      .getDb()
+      .db()
+      .collection("contacts")
+      .findOne({ _id: o_id });
+    res.setHeader("Content-Type", "application/json");
+    res.status(200).json(result);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 const postContacts = async (request, response, next) => {
+  const contact = {
+    firstName: request.body.firstName,
+    lastName: request.body.lastName,
+    email: request.body.email,
+    favoriteColor: request.body.favoriteColor,
+    birthday: request.body.birthday,
+  };
   const result = await mongodb
     .getDb()
     .db()
     .collection("contacts")
-    .insertOne(request.body);
+    .insertOne(contact);
   response.setHeader("Content-Type", "application/json");
   response.status(201).json(result);
   //response.redirect("/")
@@ -30,14 +53,20 @@ const postContacts = async (request, response, next) => {
 
 const putContact = async (request, response, next) => {
   try {
-    id = request.params.id;
+    id = request.params._id;
     //console.log(id);
     let o_id = new ObjectId(id);
+    body = { favoriteColor: request.body.favoriteColor };
+    //console.log(body);
+    //console.log(body.favoriteColor);
     const result = await mongodb
       .getDb()
       .db()
       .collection("contacts")
-      .updateOne({ _id: o_id }, { $set: request.body });
+      .updateOne(
+        { _id: o_id },
+        { $set: { favoriteColor: body.favoriteColor } }
+      );
     response.setHeader("Content-Type", "application/json");
     response.status(204).json(result);
   } catch (error) {
@@ -47,42 +76,21 @@ const putContact = async (request, response, next) => {
 
 const deleteContact = async (request, response, next) => {
   try {
-    //o_id = new ObjectId(request.params.id); too annoying since the ids will change when creating and deleting the same contact.
+    id = request.params._id;
+    o_id = new ObjectId(id);
+    body = {
+      _id: o_id,
+    };
     const result = await mongodb
       .getDb()
       .db()
       .collection("contacts")
-      .deleteOne(request.body);
+      .deleteOne(body);
     response.setHeader("Content-Type", "application/json");
     response.status(200).json(result);
   } catch (error) {
     console.error(error);
   }
-};
-
-// From:https://stackoverflow.com/questions/8233014/how-do-i-search-for-an-object-by-its-objectid-in-the-mongo-console
-//let id = "58c85d1b7932a14c7a0a320d";
-
-//let o_id = new ObjectId(id); // id as a string is passed
-
-//db.collection.findOne({ _id: o_id });
-//
-//
-
-let id = "65bf42a49fc51df844d61464";
-
-let o_id = new ObjectId(id); // id as a string is passed
-
-const getSpecificContact = async (req, res, next) => {
-  const result = await mongodb
-    .getDb()
-    .db()
-    .collection("contacts")
-    .find({ _id: o_id });
-  result.toArray().then((lists) => {
-    res.setHeader("Content-Type", "application/json");
-    res.status(200).json(lists);
-  });
 };
 
 module.exports = {
